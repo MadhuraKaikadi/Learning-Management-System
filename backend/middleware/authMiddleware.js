@@ -33,10 +33,19 @@ const protect = async (req, res, next) => {
 // Check if the user is an Admin
 const admin = (req, res, next) => {
   if (req.user && req.user.role === 'Admin') {
-    next(); // They are an Admin, let them proceed!
+    next(); 
   } else {
     res.status(403).json({ message: 'Not authorized as an Admin' });
   }
 };
 
-module.exports = { protect, admin };
+// Check if the user is a Teacher (Admins can also act as teachers)
+const teacher = (req, res, next) => {
+  if (req.user && (req.user.role === 'Teacher' || req.user.role === 'Admin')) {
+    next();
+  } else {
+    res.status(403).json({ message: 'Not authorized as a Teacher' });
+  }
+};
+
+module.exports = { protect, admin, teacher };

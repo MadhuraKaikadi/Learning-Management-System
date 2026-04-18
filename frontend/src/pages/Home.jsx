@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/courses');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/courses');
         const data = await response.json();
         setCourses(data); 
         setLoading(false);
@@ -28,7 +28,7 @@ const Home = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/enrollments', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/enrollments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

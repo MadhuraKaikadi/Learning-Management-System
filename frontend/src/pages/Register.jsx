@@ -13,7 +13,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -80,7 +80,8 @@ const Register = () => {
               <label className="block text-sm font-bold text-gray-700 mb-1">Account Type</label>
               <select name="role" onChange={handleChange} className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white transition-all">
                 <option value="Student">Student (Learn)</option>
-                <option value="Admin">Instructor (Teach)</option>
+                <option value="Teacher">Teacher (Teach & Report)</option>
+                <option value="Admin">Admin (Oversight)</option>
               </select>
             </div>
 

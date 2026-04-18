@@ -55,7 +55,13 @@ const Navbar = () => {
                 
                 {userInfo?.role === 'Admin' && (
                   <Link to="/admin" className="text-gray-600 hover:text-blue-600 font-semibold transition-colors">
-                    Instructor Dashboard
+                    Admin Panel
+                  </Link>
+                )}
+
+                {userInfo?.role === 'Teacher' && (
+                  <Link to="/teacher" className="text-gray-600 hover:text-blue-600 font-semibold transition-colors">
+                    Teacher Dashboard
                   </Link>
                 )}
                 
@@ -118,7 +124,13 @@ const Navbar = () => {
                 
                 {userInfo?.role === 'Admin' && (
                   <Link to="/admin" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50">
-                    Instructor Dashboard
+                    Admin Panel
+                  </Link>
+                )}
+
+                {userInfo?.role === 'Teacher' && (
+                  <Link to="/teacher" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                    Teacher Dashboard
                   </Link>
                 )}
                 

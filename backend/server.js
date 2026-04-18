@@ -21,6 +21,7 @@ app.use(express.json()); // Allows our backend to understand JSON data (like for
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/courses', require('./routes/courseRoutes'));
 app.use('/api/enrollments', require('./routes/enrollmentRoutes'));
+app.use('/api/users', require('./routes/userRoutes')); // Add the users route
 
 // A simple test route
 app.get('/', (req, res) => {

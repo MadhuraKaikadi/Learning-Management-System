@@ -16,9 +16,11 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['Student', 'Admin'], // The role MUST be one of these two
-    default: 'Student', // If no role is provided, make them a Student
-  }
+    enum: ['Student', 'Teacher', 'Admin'],
+    default: 'Student',
+  },
+  resetPasswordToken: String,
+  resetPasswordExpire: Date,
 }, { timestamps: true }); // Automatically adds createdAt and updatedAt dates
 
 module.exports = mongoose.model('User', userSchema);
