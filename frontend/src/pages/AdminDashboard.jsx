@@ -9,7 +9,7 @@ const AdminDashboard = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('userToken');
-        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.ok) {
