@@ -14,7 +14,7 @@ const TeacherDashboard = () => {
       try {
         const token = localStorage.getItem('userToken');
         // Because of our middleware, Teachers can fetch the users list too!
-        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.ok) {
@@ -35,7 +35,7 @@ const TeacherDashboard = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('userToken');
-      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/courses', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/courses`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
