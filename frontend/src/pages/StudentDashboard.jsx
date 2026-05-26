@@ -25,13 +25,14 @@ const StudentDashboard = () => {
         }
 
         // Fetch Faculties (Teachers)
-        const resFaculties = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users/teachers', {
-          headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if (resFaculties.ok) {
-          const facultyData = await resFaculties.json();
-          setFaculties(facultyData);
-        }
+        const resFaculties = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/users/teachers`, {
+  headers: { 'Authorization': `Bearer ${token}` }
+});
+
+if (resFaculties.ok) {
+  const facultyData = await resFaculties.json();
+  setFaculties(facultyData);
+}
 
         setLoading(false);
       } catch (error) {
