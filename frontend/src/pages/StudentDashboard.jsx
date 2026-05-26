@@ -13,8 +13,11 @@ const StudentDashboard = () => {
         const token = localStorage.getItem('userToken');
         
         // Fetch Enrollments
-        const resEnroll = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/enrollments/my-courses', {
-          headers: { 'Authorization': `Bearer ${token}` }
+        // const resEnroll = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/enrollments/my-courses', {
+        //   headers: { 'Authorization': `Bearer ${token}` }
+        // });
+        const resEnroll = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/enrollments/my-courses`, {
+              headers: { 'Authorization': `Bearer ${token}` }
         });
         if (resEnroll.ok) {
           const enrollData = await resEnroll.json();
